@@ -3,8 +3,10 @@ var bczExpresstion = {
 
     //应用路径
     expressBaseUrl : "../imgs",
-    //关联文本域
+    //关联文本域DIV
     expressArea : null,
+    //文本域本身
+    textArea : null,
     //初始化DOM元素
     //param
     //  - btn (id) : 需要添加表情按钮的元素ID
@@ -16,12 +18,24 @@ var bczExpresstion = {
         //获取按钮节点元素
         var element = $('#'+btn).get(0);
         //获取文本域节点元素
-        $('#'+area).attr("contenteditable", true);
-        bczExpresstion.expressArea = $('#'+area).get(0);
-        if(typeof(element) == "undefined" || typeof(bczExpresstion.expressArea) == "undefined") {
+        bczExpresstion.textArea = $('#'+area).get(0);
+        //判断节点是否有效
+        if(typeof(element) == "undefined" || typeof(bczExpresstion.textArea) == "undefined") {
             console.error("无效的初始化节点");
             return;
         }
+        //文本域之后添加DIV，并隐藏文本域
+        $('#'+area).hide();
+        var textDiv = "<div id='bcz_express_area_div' contenteditable='true' class='bcz_textDiv'></div>";
+        $('#'+area).after(textDiv);
+        bczExpresstion.expressArea = $('#bcz_express_area_div').get(0);
+        //DIV与文本域同步
+        $(bczExpresstion.expressArea).on("keyup", function() {
+            $(bczExpresstion.textArea).val($(bczExpresstion.expressArea).html());
+        }).on("DOMNodeInserted", function() {
+            $(bczExpresstion.textArea).val($(bczExpresstion.expressArea).html());
+        });
+
         //生成表情选择框
         bczExpresstion.createExpressWineow();
         //将element初始化为表情按钮
@@ -59,7 +73,7 @@ var bczExpresstion = {
     //生成表情选择框
     createExpressWineow : function() {
         //添加弹出框到指定位置
-        var pop_obj = "<div id='expressWindow' class='hide'><div class='bcz_express_nav'></div><div class='bcz_express_content'></div></div>";
+        var pop_obj = "<div id='expressWindow' style='display: none;'><div class='bcz_express_nav'></div><div class='bcz_express_content'></div></div>";
         $("body").append(pop_obj);
         //生成表情
         var bcz_express_nav = $("#expressWindow div[class*='bcz_express_nav']");
@@ -77,7 +91,7 @@ var bczExpresstion = {
         //添加表情 - 迭代表情数据集合
         bcz_express_content.empty();
         $.each(bczExpresstion.expressList, function(i, o) {
-            var express_obj = "<div data-id='"+i+"' class='hide'><table><tr>";
+            var express_obj = "<div data-id='"+i+"' style='display: none;'><table><tr>";
             var index = 0;
             if(o != null) {
                 $.each(o.data, function(k, v) {
