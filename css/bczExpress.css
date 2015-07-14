@@ -1,0 +1,61 @@
+/*表情框选项卡样式*/
+.bcz_express_nav {
+    height: 30px;
+}
+.bcz_express_nav ul {
+    list-style-type: none;
+}
+.bcz_express_nav li {
+    float: left;
+    display: block;
+    width: 70px;
+    height: 28px;
+    border: 1px solid #999;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin: 1px 2px;
+    margin-left: 0px;
+    background-color: #F6F6F6;
+    text-align: center;
+    line-height: 28px;
+    border-bottom-color: #F6F6F6;
+}
+/*选择框背景色设置*/
+.bcz_express_nav li:hover {
+    background-color: #99CC66;
+}
+/*表情框样式*/
+.bcz_express_content {
+    width: 100%;
+    background-color: #F6F6F6;
+    border: 1px solid #999;
+    padding: 5px;
+}
+.bcz_express_content table {
+    width: 100%;
+}
+.bcz_express_content table td {
+    border: 1px solid #999;
+    height: 60px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #fff;
+}
+/*选择框背景色设置*/
+.bcz_express_content table td:hover {
+    background-color: #99CC66;
+}
+/*文本输入框样式*/
+.bcz_textDiv {
+    height: 200px;
+    overflow: auto;
+    width: 100%;
+    border: 1px solid #999;
+}
+#expressWindow {
+    position: absolute;
+}
+/*选择框背景色设置*/
+.express_list_on {
+    background-color: #99CC66 !important;
+}
