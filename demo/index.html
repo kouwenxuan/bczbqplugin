@@ -22,11 +22,16 @@
 </head>
 <body>
     <div class="container">
+        <textarea id="bcz_express_area" name="response" style="height: 200px; overflow: auto; width: 100%;"></textarea>
         <div>
-            <textarea id="bcz_express_area" name="response" style="height: 200px; border: 1px solid #333;"></textarea>
+            <div id="expressBtn" style="width: 30px; height: 30px; border: 1px solid #333;"></div>
         </div>
+    </div>
+    <br/>
+    <div class="container">
+        <textarea id="bcz_express_area2" name="response2" style="height: 200px; overflow: auto; width: 100%;"></textarea>
         <div>
-            <div id="expressBtn" style="width: 30px; height: 30px;"></div>
+            <div id="expressBtn2" style="width: 30px; height: 30px; border: 1px solid #333;"></div>
         </div>
     </div>
 </body>
@@ -38,5 +43,9 @@
             - expressArea 表情关联的文本元素ID
             - imgURL 表情图片资源所在目录
     */
-    bczExpresstion.init("expressBtn", "bcz_express_area", "../imgs");
+    var bczExpress = new bczExpresstion();
+    bczExpress.init("expressBtn", "bcz_express_area", "../imgs");
+
+    var bczExpress2 = new bczExpresstion();
+    bczExpress2.init("expressBtn2", "bcz_express_area2", "../imgs");
 </script>

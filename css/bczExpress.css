@@ -44,13 +44,6 @@
 .bcz_express_content table td:hover {
     background-color: #99CC66;
 }
-/*文本输入框样式*/
-.bcz_textDiv {
-    height: 200px;
-    overflow: auto;
-    width: 100%;
-    border: 1px solid #999;
-}
 /*弹出框样式*/
 #expressWindow {
     position: absolute;
