@@ -12,7 +12,7 @@ function bczExpresstion() {
 
 //原型定义
 
-//按钮所关联的文本框
+//按钮所关联的文本框 － 原型中保留唯一标识
 bczExpresstion.prototype.link = null;
 //初始化
 bczExpresstion.prototype.init = function(btn, area, imgURL) {
